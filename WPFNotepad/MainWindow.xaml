@@ -1,0 +1,47 @@
+﻿<Window x:Class="WPFNotepad.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNotepad"
+        mc:Ignorable="d"
+        Title="Notepad" Height="720" Width="1024" WindowStartupLocation="CenterScreen" ShowInTaskbar="True" Closing="Window_Closing">
+    <!--Base Gird-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <!--Header-->
+            <RowDefinition Height="35"/>
+            <!--Body-->
+            <RowDefinition/>
+            <!--Footer-->
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+         
+        <!--Header-->
+        <Rectangle Fill="#FF202020"/>
+        
+        <!--Menu-->
+        <Menu Background="Transparent" Foreground="White" VerticalAlignment="Center">
+            <MenuItem Header="Plik">
+                <MenuItem x:Name = "Open_File" Header="Otwórz" InputGestureText="CTRL+O" Click="Open_File_Click"/>
+                <MenuItem x:Name = "Save_File" Header="Zapisz" InputGestureText="CTRL+Z" />
+                <MenuItem x:Name = "Close_File" Header="Zamknij" InputGestureText="CTRL+X" />
+                <MenuItem x:Name = "Exit_Program"  Header="Wyjdź" InputGestureText="CTRL+W"  Click="Exit_Program_Click"/>
+            </MenuItem>
+            <MenuItem Header="Ustawienia">
+                <MenuItem Header="Motyw">
+                    <RadioButton Foreground="White" IsChecked="False" >Jasny</RadioButton>
+                    <RadioButton Foreground="White" IsChecked="True">Ciemny</RadioButton>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <!--Body-->
+        <Rectangle Fill="#FF2B2B2B" Grid.Row="1"/>
+        <TextBox Grid.Row="1" Background="Transparent" BorderThickness="0" FontSize="16" Foreground="White" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+
+        <!--Footer-->
+        <Rectangle Fill="#FF202020" Grid.Row="2"/>
+        <TextBlock Margin="10" Grid.Row="2" Foreground="White" VerticalAlignment="Center">Notepad © 2024</TextBlock>
+    </Grid>
+</Window>
