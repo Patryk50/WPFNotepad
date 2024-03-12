@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFNotepad"
         mc:Ignorable="d"
-        Title="Notepad" Height="720" Width="1024" WindowStartupLocation="CenterScreen" ShowInTaskbar="True" Closing="Window_Closing">
+        Title="Notepad" Height="720" Width="1024" WindowStartupLocation="CenterScreen" ShowInTaskbar="True">
     <!--Base Gird-->
     <Grid>
         <Grid.RowDefinitions>
@@ -22,26 +22,20 @@
         
         <!--Menu-->
         <Menu Background="Transparent" Foreground="White" VerticalAlignment="Center">
-            <MenuItem Header="Plik">
-                <MenuItem x:Name = "Open_File" Header="Otwórz" InputGestureText="CTRL+O" Click="Open_File_Click"/>
-                <MenuItem x:Name = "Save_File" Header="Zapisz" InputGestureText="CTRL+Z" />
-                <MenuItem x:Name = "Close_File" Header="Zamknij" InputGestureText="CTRL+X" />
-                <MenuItem x:Name = "Exit_Program"  Header="Wyjdź" InputGestureText="CTRL+W"  Click="Exit_Program_Click"/>
+            <MenuItem Header="File">
+                <MenuItem x:Name = "Open_File" Header="Open" InputGestureText="CTRL+O" Click="Open_File_Click"/>
+                <MenuItem x:Name = "Save_File" Header="Save" InputGestureText="CTRL+Z" Click="Save_File_Click"/>
+                <MenuItem x:Name = "Exit_Program"  Header="Exit" InputGestureText="CTRL+W" Click="Exit_Program_Click"/>
             </MenuItem>
-            <MenuItem Header="Ustawienia">
-                <MenuItem Header="Motyw">
-                    <RadioButton Foreground="White" IsChecked="False" >Jasny</RadioButton>
-                    <RadioButton Foreground="White" IsChecked="True">Ciemny</RadioButton>
-                </MenuItem>
-            </MenuItem>
+            <MenuItem Header="Settings"></MenuItem>
         </Menu>
         
         <!--Body-->
         <Rectangle Fill="#FF2B2B2B" Grid.Row="1"/>
-        <TextBox Grid.Row="1" Background="Transparent" BorderThickness="0" FontSize="16" Foreground="White" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        <TextBox x:Name="TextArea" Grid.Row="1" Background="Transparent" Padding="10" BorderThickness="0" FontSize="16" Foreground="White" CaretBrush="White" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
 
         <!--Footer-->
         <Rectangle Fill="#FF202020" Grid.Row="2"/>
-        <TextBlock Margin="10" Grid.Row="2" Foreground="White" VerticalAlignment="Center">Notepad © 2024</TextBlock>
+        <TextBlock Margin="10" Grid.Row="2" Foreground="White" VerticalAlignment="Center">WPFNotepad © 2024</TextBlock>
     </Grid>
 </Window>
