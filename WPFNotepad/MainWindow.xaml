@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:WPFNotepad"
         mc:Ignorable="d"
         Title="Notepad" Height="720" Width="1024" WindowStartupLocation="CenterScreen" ShowInTaskbar="True">
+
     <!--Base Gird-->
     <Grid>
         <Grid.RowDefinitions>
@@ -18,24 +19,29 @@
         </Grid.RowDefinitions>
          
         <!--Header-->
-        <Rectangle Fill="#FF202020"/>
-        
+        <Rectangle Fill="{DynamicResource Header}"/>
+
         <!--Menu-->
-        <Menu Background="Transparent" Foreground="White" VerticalAlignment="Center">
-            <MenuItem Header="File">
+        <Menu Background="{DynamicResource Header}" Foreground="{DynamicResource Text}" VerticalAlignment="Center">
+            <MenuItem Foreground="{DynamicResource Text}" Header="File">
                 <MenuItem x:Name = "Open_File" Header="Open" InputGestureText="CTRL+O" Click="Open_File_Click"/>
                 <MenuItem x:Name = "Save_File" Header="Save" InputGestureText="CTRL+Z" Click="Save_File_Click"/>
                 <MenuItem x:Name = "Exit_Program"  Header="Exit" InputGestureText="CTRL+W" Click="Exit_Program_Click"/>
             </MenuItem>
-            <MenuItem Header="Settings"></MenuItem>
+            <MenuItem Foreground="{DynamicResource Text}" Header="Settings">
+                <MenuItem Header="Themes">
+                    <MenuItem Header="LightTheme" Click="LightTheme_Click"/>
+                    <MenuItem Header="DarkTheme" Click="DarkTheme_Click"/>
+                </MenuItem>
+            </MenuItem>
         </Menu>
-        
+
         <!--Body-->
-        <Rectangle Fill="#FF2B2B2B" Grid.Row="1"/>
-        <TextBox x:Name="TextArea" Grid.Row="1" Background="Transparent" Padding="10" BorderThickness="0" FontSize="16" Foreground="White" CaretBrush="White" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
+        <Rectangle Fill="{DynamicResource Body}" Grid.Row="1"/>
+        <TextBox x:Name="TextArea" Grid.Row="1" Background="Transparent" Padding="10" BorderThickness="0" FontSize="16" Foreground="{DynamicResource Text}" CaretBrush="{DynamicResource CaretColor}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True" TextWrapping="Wrap"/>
 
         <!--Footer-->
-        <Rectangle Fill="#FF202020" Grid.Row="2"/>
-        <TextBlock Margin="10" Grid.Row="2" Foreground="White" VerticalAlignment="Center">WPFNotepad © 2024</TextBlock>
+        <Rectangle Fill="{DynamicResource Footer}" Grid.Row="2"/>
+        <TextBlock Margin="10" Grid.Row="2" Foreground="{DynamicResource Text}" VerticalAlignment="Center">WPFNotepad © 2024</TextBlock>
     </Grid>
 </Window>

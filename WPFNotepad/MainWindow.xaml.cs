@@ -60,5 +60,15 @@ namespace WPFNotepad
         {
             Environment.Exit(0);
         }
+
+        private void LightTheme_Click(object sender, RoutedEventArgs e)
+        {
+            AppTheme.ChangeTheme(new Uri("Themes/Light.xaml", UriKind.Relative));
+        }
+
+        private void DarkTheme_Click(object sender, RoutedEventArgs e)
+        {
+            AppTheme.ChangeTheme(new Uri("Themes/Dark.xaml", UriKind.Relative));
+        }
     }
 }
